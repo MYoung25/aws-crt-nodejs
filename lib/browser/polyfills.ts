@@ -11,11 +11,10 @@ import process from 'process';
 if (self) {
     (self as any).Buffer = buffer.Buffer;
     (self as any).process = process;
-}
-
-if (window) {
-    // NodeJS global shim workaround for Angular
-    (window as any).global = window;
+    if (self.window) {
+        // NodeJS global shim workaround for Angular
+        (window as any).global = window;
+    }
 }
 
 export { };
